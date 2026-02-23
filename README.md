@@ -24,9 +24,17 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 
 ---
 
+
 ## 🏗 Architecture
 
-This project follows **MVVM (Model-View-ViewModel)** architecture.
+This app follows **MVVM architecture** using Riverpod.
+
+- Model → Data layer  
+- View → UI layer  
+- ViewModel → Business logic & state  
+
+This keeps the code clean, scalable, and maintainable.
+
 
 
 ## 🧠 State Management
@@ -106,7 +114,7 @@ Check Flutter installation:
 ```bash
 flutter doctor
 
-5️⃣ Build APK (Optional)
+## Build APK (Optional)
 
 To generate release APK:
 
