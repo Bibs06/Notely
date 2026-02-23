@@ -4,6 +4,11 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 
 ---
 
+## Credentials to login
+
+ email : student@gmail.com
+ password : student123@
+
 ## 🚀 Features
 
 - Create, Update, Delete Subjects
@@ -29,7 +34,7 @@ This project follows **MVVM (Model-View-ViewModel)** architecture.
 - Riverpod
 
 
-🗄 Local Storage
+## 🗄 Local Storage
 SQFlite
 
 Used for:
@@ -44,15 +49,15 @@ Pagination using LIMIT & OFFSET
 
 Search queries
 
-🔐 Flutter Secure Storage
+## 🔐 Flutter Secure Storage
 
 Used for:
 
-Storing authentication tokens
+Storing auth state
 
 Persisting login state securely
 
-📦 Packages Used
+## 📦 Packages Used
 
 flutter_riverpod
 
@@ -64,7 +69,9 @@ flutter_secure_storage
 
 flutter_screenutil
 
-📱 Authentication
+flutter_toast
+
+##📱 Authentication
 
 Dummy authentication supported
 
