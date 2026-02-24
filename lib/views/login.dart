@@ -70,11 +70,34 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 TextFormField(
                   controller: passwordController,
                   obscureText: true,
+                  
                   decoration: InputDecoration(
-                    labelText: "Password",
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                    labelText: "Password",
+                   
                     prefixIcon: const Icon(Icons.lock),
                   ),
                   validator: (value) {

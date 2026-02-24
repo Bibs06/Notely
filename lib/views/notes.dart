@@ -98,9 +98,12 @@ final TextEditingController searchController = TextEditingController();
   ],
 ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppColors.darkBlue,
         onPressed: () => _openNoteSheet(context),
-        icon: const Icon(Icons.add),
-        label: const Text("Add Note"),
+        icon: const Icon(Icons.add,color: AppColors.white,),
+        label: const Text("Add Note",style: TextStyle(
+          color: AppColors.white
+        ),),
       ),
       body: Consumer(
         builder: (context, ref, child) {
@@ -119,7 +122,7 @@ final TextEditingController searchController = TextEditingController();
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.note_alt_outlined, size: 80, color: Colors.grey),
+                  Icon(Icons.note_alt_outlined, size: 80, color: AppColors.darkBlue),
                   SizedBox(height: 16),
                   Text(
                     "No Notes Yet",
@@ -128,7 +131,6 @@ final TextEditingController searchController = TextEditingController();
                   SizedBox(height: 8),
                   Text(
                     "Tap + to create your first note",
-                    style: TextStyle(color: Colors.grey),
                   ),
                 ],
               ),
@@ -141,7 +143,7 @@ final TextEditingController searchController = TextEditingController();
 
           return ListView.builder(
             controller: scrollController,
-            padding: const EdgeInsets.all(16),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
             itemCount: displayList.length,
             itemBuilder: (context, index) {
               final note = displayList[index];
@@ -150,38 +152,81 @@ final TextEditingController searchController = TextEditingController();
                   key: Key(note.id.toString()),
                   background: Container(
                     alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: 20),
+                     padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 25.h,
+                  ),
+                  decoration: BoxDecoration(
                     color: Colors.red,
+                    borderRadius: BorderRadius.circular(16.r),
+                  ),
                     child: const Icon(Icons.delete, color: Colors.white),
                   ),
                   onDismissed: (_) {
                     viewModel.deleteNote(note.id!, widget.subjectId);
                   },
-                  child: Card(
-                    elevation: 3,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: ListTile(
-                      contentPadding: const EdgeInsets.all(16),
-                      title: Text(
-                        note.title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                  child: GestureDetector(
+                    child: Container(
+                      width: double.infinity,
+                       margin: EdgeInsets.only(bottom: 12.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 25.h,
+                  ),
+                 decoration: BoxDecoration(
+  gradient: LinearGradient(
+    colors: [
+      Color(0xFF1E3A8A), // lighter navy
+      Color(0xFF1E40AF),
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  ),
+  borderRadius: BorderRadius.circular(16.r),
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.25),
+      blurRadius: 12,
+      offset: Offset(0, 8),
+    )
+  ],
+),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                           Text(
+                      note.title,
+                      style: TextStyle(
+                            color: AppColors.white,
+                              letterSpacing: 2,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22.sp,
                       ),
-                      subtitle: Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Text(
-                          note.description,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      onTap: () => _openNoteSheet(context, note: note),
                     ),
+                   Text(
+                        note.description,
+                        style: TextStyle(
+                              color: AppColors.white,
+                              letterSpacing: 2,
+                              fontSize: 18.sp
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        note.createdAt.substring(0, 10),
+                        style: TextStyle(
+                              color: AppColors.white,
+                              letterSpacing: 2,
+                              fontSize: 13.sp
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                        ],
+                      ),
+                  ),
+                    onTap: () => _openNoteSheet(context, note: note),
                   ),
                 );
               }
@@ -256,9 +301,32 @@ final TextEditingController searchController = TextEditingController();
               const SizedBox(height: 20),
               TextField(
                 controller: titleController,
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
                   labelText: "Title",
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: AppColors.darkBlue
+                  ),
+                  
+                 
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
                 ),
               ),
               const SizedBox(height: 16),
