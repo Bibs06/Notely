@@ -5,7 +5,7 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 
 ## Screen Shots
 
-c:\Users\bibin\OneDrive\Desktop\shyjo\App Screen shots (1).png
+![alt text](<App Screen shots (1).png>)
 ---
 
 ## How to install
