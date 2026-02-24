@@ -36,6 +36,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+               
                 const Text(
                   "Welcome Back",
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),

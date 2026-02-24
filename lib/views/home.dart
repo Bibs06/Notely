@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notely/core/models/note_model.dart';
 import 'package:notely/core/models/subject_model.dart';
+import 'package:notely/core/services/local_storage.dart';
 import 'package:notely/core/utils/colors.dart';
 import 'package:notely/core/utils/enum.dart';
 import 'package:notely/core/utils/go.dart';
@@ -10,6 +11,7 @@ import 'package:notely/core/widgets/custom_btn.dart';
 import 'package:notely/core/widgets/toast.dart';
 import 'package:notely/view_models/note_view_model.dart';
 import 'package:notely/view_models/subject_view_model.dart';
+import 'package:notely/views/login.dart';
 import 'package:notely/views/notes.dart';
 
 class HomeView extends ConsumerStatefulWidget {
@@ -208,6 +210,14 @@ class _HomeViewState extends ConsumerState<HomeView> {
               });
             },
           ),
+          IconButton(
+            onPressed: () async {
+              await LocalStorage.remove(['isLogin']).then((_) {
+                Go.toWithPopUntil(context, LoginView());
+              });
+            },
+            icon: Icon(Icons.logout_outlined),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -268,24 +278,21 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     horizontal: 16.w,
                     vertical: 25.h,
                   ),
-                 decoration: BoxDecoration(
-  gradient: LinearGradient(
-    colors: [
-      Color(0xFF1E3A8A),
-      Color(0xFF1E40AF),
-    ],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  ),
-  borderRadius: BorderRadius.circular(20.r),
-  boxShadow: [
-    BoxShadow(
-      color: Colors.black.withOpacity(0.25),
-      blurRadius: 12,
-      offset: Offset(0, 8),
-    )
-  ],
-),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color(0xFF1E3A8A), Color(0xFF1E40AF)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(20.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
+                        blurRadius: 12,
+                        offset: Offset(0, 8),
+                      ),
+                    ],
+                  ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -310,7 +317,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
                             ),
                           ),
                           Text(
-                            model.subjectModel![index].createdAt.substring(0, 10),
+                            model.subjectModel![index].createdAt.substring(
+                              0,
+                              10,
+                            ),
                             style: TextStyle(
                               fontSize: 13.sp,
                               letterSpacing: 2,
