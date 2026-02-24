@@ -2,6 +2,10 @@
 
 A lightweight Flutter Notes application built using **MVVM architecture** and **Riverpod state management**, with local persistence using **SQFlite**.
 
+
+## Screen Shots
+
+c:\Users\bibin\OneDrive\Desktop\shyjo\App Screen shots (1).png
 ---
 
 ## How to install
@@ -21,7 +25,9 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 - Create, Update, Delete Notes
 - Search Subjects & Notes
 - Expandable Search UI
-- Swipe to Delete
+- Swipe to Delete Note
+- Tap on Note to update note
+- Hold and press to update or delete subject
 - Offline Support
 - Secure Authentication Storage
 - Toast Notifications
