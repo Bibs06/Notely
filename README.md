@@ -4,6 +4,12 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 
 ---
 
+## How to install
+
+👉 Get the APK from the Releases section
+📦 Extract the ZIP
+📱 Install the APK
+
 ## Credentials to login
 
  email : student@gmail.com
@@ -14,7 +20,6 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 - Create, Update, Delete Subjects
 - Create, Update, Delete Notes
 - Search Subjects & Notes
-- Pagination (Lazy Loading)
 - Expandable Search UI
 - Swipe to Delete
 - Offline Support
@@ -53,7 +58,6 @@ Notes table (Foreign key linked)
 
 CRUD operations
 
-Pagination using LIMIT & OFFSET
 
 Search queries
 
@@ -90,13 +94,6 @@ Auto login on app restart
 ⚡ Pagination
 
 Scroll listener
-
-Page tracking
-
-Total page calculation
-
-Lazy loading implementation
-
 
 ## 🛠 How to Run the Project
 
