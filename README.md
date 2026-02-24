@@ -6,6 +6,10 @@ A lightweight Flutter Notes application built using **MVVM architecture** and **
 ## Screen Shots
 
 ![alt text](<App Screen shots (1).png>)
+
+👉 Swipe to Delete Note
+👉 Tap on Note to update note
+👉 Hold and press to update or delete subject
 ---
 
 ## How to install
